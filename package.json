@@ -1,0 +1,36 @@
+{
+  "name": "jqmin",
+  "version": "0.0.1",
+  "description": "Tiny jQuery for ax6ui",
+  "main": "jquery.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ax6ui/jqmin.git"
+  },
+  "keywords": [
+    "jquery",
+    "ax6ui"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ax6ui/jqmin/issues"
+  },
+  "homepage": "https://github.com/ax6ui/jqmin#readme",
+  "files": [
+    "jquery.js",
+    "jquery.min.js",
+    "jquery.min.map",
+    "package.json"
+  ],
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0"
+  }
+}
