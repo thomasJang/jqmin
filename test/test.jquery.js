@@ -1,9 +1,3 @@
-/*
- * Copyright (c) 2017. tom@axisj.com
- * - github.com/thomasjang
- * - www.axisj.com
- */
-
 describe('TEST', function () {
     var myUI;
 

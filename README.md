@@ -10,6 +10,8 @@ jQuery 3.2.2 (-ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var
 grunt --gruntfile jquery/Gruntfile.js custom:-ajax,-attributes/prop,-attributes/support,-deprecated,-effects,-wrap,-deferred,-event/focusin,-event/alias,-css/showHide,-sizzle,-core/ready,-queue 
 ```
 
+## Usage
+
 ### npm install
 ```
 npm install jqmin -S
@@ -22,4 +24,6 @@ import $ from "jqmin"
 $(document).ready(function() {
       
 });
+
+$("#id").css({width: 300});
 ```
