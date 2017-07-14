@@ -1,6 +1,6 @@
 {
   "name": "jqmin",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tiny jQuery for ax6ui",
   "main": "jquery.js",
   "directories": {
