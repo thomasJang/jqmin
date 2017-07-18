@@ -81,23 +81,6 @@ describe('jQuery attributes', function () {
     });
 });
 
-describe('jQuery core', function () {
-    describe('jQuery core/ready', function () {
-        // TODO: ready-no-deferred
-        it('jQuery core/ready', function (done) {
-            jQuery(document).ready(function () {
-                done();
-            });
-        });
-
-        it('jQuery core/ready', function (done) {
-            $(function () {
-                done();
-            });
-        });
-    });
-});
-
 describe('jQuery css', function () {
     var tmpl = '<div data-test="css"></div>';
     jQuery(document.body).append(tmpl);
@@ -162,6 +145,94 @@ describe('jQuery event', function () {
                 done();
             });
             jQuery(window).trigger("resize");
+        });
+
+        it('error', function (done) {
+            jQuery(window).on("error", function () {
+                jQuery(window).off("error");
+                done();
+            });
+            jQuery(window).trigger("error");
+        });
+
+        it('scroll', function (done) {
+            jQuery(window).on("scroll", function () {
+                jQuery(window).off("scroll");
+                done();
+            });
+            jQuery(window).trigger("scroll");
+        });
+
+        it('load', function (done) {
+            jQuery(window).on("load", function () {
+                jQuery(window).off("load");
+                done();
+            });
+            jQuery(window).trigger("load");
+        });
+
+        it('unload', function (done) {
+            jQuery(window).on("unload", function () {
+                jQuery(window).off("unload");
+                done();
+            });
+            jQuery(window).trigger("unload");
+        });
+    });
+
+    describe('jQuery event/document loading', function () {
+        // TODO: ready-no-deferred
+        it('01. ready', function (done) {
+            jQuery(document).ready(function () {
+                done();
+            });
+        });
+
+        it('02. ready', function (done) {
+            $(function () {
+                done();
+            });
+        });
+
+        it('03. ready', function (done) {
+            jq2 = jQuery.noConflict();
+            jq2(function ($) {
+                $(function () {
+                    done();
+                });
+            });
+        });
+    });
+
+    describe('jQuery event/event handler attachment', function () {
+        var tmpl = '<button type="button" data-test="btn">버튼</button>';
+        jQuery(document.body).append(tmpl);
+
+        var $el = jQuery('[data-test="btn"]');
+
+        after(function(){
+           $el.remove();
+        });
+
+        it('on', function (done) {
+            jQuery(window).on('click', function () {
+                done();
+            });
+            $el.trigger('click');
+        });
+
+        it('off', function (done) {
+            setTimeout(function () {
+                jQuery(window).off('click');
+                done();
+            }, 50);
+        });
+
+        it('one', function (done) {
+            jQuery(window).one('click', function () {
+                done();
+            });
+            $el.trigger('click');
         });
     });
 });
