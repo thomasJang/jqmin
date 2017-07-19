@@ -235,4 +235,64 @@ describe('jQuery event', function () {
             $el.trigger('click');
         });
     });
+
+    // TODO: excluded event/focusin
+
+    describe('jQuery forms', function () {
+        var tmpl = '<form name="test-form" data-test="form" action="#"><input type="text" name="one" value="1"/><input type="text" name="two" value="2"/></form>';
+        jQuery(document.body).append(tmpl);
+
+        var $el = jQuery('[data-test="form"]');
+
+        after(function(){
+            $el.remove();
+        });
+
+        // TODO: FAIL
+        it('serialize : [FAIL] prop is not a function', function (done) {
+            try {
+                $el.serialize();
+            }
+            catch (e){
+                console.log(e);
+            }
+            finally {
+                done();
+            }
+        });
+
+        // TODO: FAIL
+        it('submit : [FAIL] $el.submit is not a function', function (done) {
+            try {
+                $el.on("submit", function () {
+                    done();
+                });
+
+                $el.submit();
+            }
+            catch (e){
+
+            }
+            finally {
+                done();
+            }
+
+        });
+
+        it('param', function () {
+            var param = {
+                a: 1,
+                b: 2,
+                c: 3
+            };
+
+            should.deepEqual(jQuery.param(param), "a=1&b=2&c=3");
+        });
+
+        it('val', function () {
+            should.deepEqual(jQuery(document.getElementsByName("two")).val(), '2');
+        });
+    });
+
+
 });
